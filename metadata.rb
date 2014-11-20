@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 
-name             'hostnames'
+name             'hostname'
 maintainer       'Nathan Tsoi'
 maintainer_email 'nathan@vertile.com'
 license          'MIT'
