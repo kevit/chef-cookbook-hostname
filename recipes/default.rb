@@ -104,18 +104,18 @@ if fqdn
     end
   end
 
-  hostsfile_entry 'localhost' do
-    ip_address '127.0.0.1'
-    hostname 'localhost'
-    action :append
-  end
-
   hostsfile_entry 'set hostname' do
     ip_address node['hostname_cookbook']['use_node_ip'] ? node['ipaddress'] : node['hostname_cookbook']['hostsfile_ip']
     hostname "#{hostname}.#{domain}"
     aliases [hostname]
     action :create
     notifies :reload, 'ohai[reload]', :immediately
+  end
+
+  hostsfile_entry 'localhost' do
+    ip_address '127.0.0.1'
+    hostname 'localhost'
+    action :append
   end
 
   ohai 'reload' do
